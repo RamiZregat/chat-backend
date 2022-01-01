@@ -8,7 +8,7 @@ const PORT=process.env.PORT || 3001;
 
 const server = http.createServer(app);
 
-// let array=[];
+let arrayRooms=[];
 
 const io = new Server(server, {
   cors: {
@@ -21,9 +21,9 @@ io.on("connection", (socket) => {
   // console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
-    socket.join(data);
+    socket.join(data.id);
     console.log(data);
-    // array.push(data)
+    arrayRooms.push(data)
     // console.log(array);
 
     // console.log(`User with ID: ${socket.id} joined room: ${data}`);
