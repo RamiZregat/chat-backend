@@ -22,6 +22,7 @@ io.on("connection", (socket) => {
 
   socket.on("join_room", (data) => {
     socket.join(data.id);
+    // socket.join(5);
     console.log(data);
     arrayRooms.push(data)
     // console.log(array);
@@ -31,7 +32,7 @@ io.on("connection", (socket) => {
 
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data);
-    console.log("massage sent");
+    console.log("massage sent",data);
   });
 
   socket.on("disconnect", () => {
