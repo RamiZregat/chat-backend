@@ -21,8 +21,8 @@ io.on("connection", (socket) => {
   // console.log(`User Connected: ${socket.id}`);
 
   socket.on("join_room", (data) => {
-    socket.join(data.id);
-    // socket.join(5);
+    // socket.join(data.id);
+    socket.join(5);
     console.log(data);
     arrayRooms.push(data)
     // console.log(array);
